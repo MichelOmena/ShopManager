@@ -12,9 +12,9 @@
 </head>
 
 <body class="login_body container d-flex justify-content-center align-items-center">
-        <div class="background-wrapper col-lg-12">
-            <img src="./assets/img/Christmas_Pine.png" alt="plano_de_fundo" class="background_image" width="100%">
-        </div>
+        <!-- <div class="background-wrapper col-lg-12">
+            <img src="./assets/img/teste.jpg" alt="plano_de_fundo" class="background_image" width="100%">
+        </div> -->
     <div class="login_box d-fluid justify-content-center align-items-center col-lg-4 p-5 rounded-5 mt-5 mb-3">
         <h1 class="text-center text-white">ONDISC</h1>
         <h2 class="text-center text-white mb-4">LOGIN</h2>
