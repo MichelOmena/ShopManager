@@ -1,22 +1,75 @@
 /*DataTables*/
 $(document).ready( function () {
     $('#table_product').DataTable();
-} );
+});
+/*Fim DataTables*/
 
 /* Modal Categoria/Sub */
-function showModal(modalId, options) {
-    const dropdownElement = document.getElementById(modalId === 'categoriaModal' ? 'categoriaDropdown' : 'subcategoriaDropdown');
-    dropdownElement.innerHTML = '<option value="" selected>Selecione uma opção</option>'; //Resetar opções 
+// Função para abrir o modal de categorias e carregar as opções no dropdown
+function openCategoriaModal(ean, categorias) {
+    const dropdown = document.getElementById('categoriaDropdown');
+    dropdown.innerHTML = '<option value="" selected>Selecione uma Categoria</option>'; // Resetar opções
 
-    options.forEach(option => {
-        const opt = document.createElement('option');
-opt.value = option.toLowerCase().replace(/\s/g, '_') //Valor pode ser ajustado
-        opt.textContent.option;
-        dropdownElement.appendChild(opt);
+    categorias.forEach(categoria => {
+        const option = document.createElement('option');
+        option.value = categoria.toLowerCase().replace(/\s/g, '_'); // Valor pode ser ajustado
+        option.textContent = categoria; // Corrigido para usar "option"
+        dropdown.appendChild(option);
     });
-    const modal = new bootstrap.Modal(document.getElementById(modalId));
+
+    // Abrir o Modal
+    const modal = new bootstrap.Modal(document.getElementById('categoriaModal')); // Corrigido ID como string
     modal.show();
+
+    // Adicionar evento ao dropdown para salvar escolha
+    dropdown.onchange = function () {
+        if (this.value) {
+            updateSelection(ean, 'categoria', this.options[this.selectedIndex].text); // Corrigido para usar "selectedIndex"
+            modal.hide(); // Fechar o modal
+        }
+    };
 }
+
+// Função para abrir o modal de subcategorias e carregar as opções no dropdown
+function openSubcategoriaModal(ean, subcategorias) {
+    const dropdown = document.getElementById('subcategoriaDropdown');
+    dropdown.innerHTML = '<option value="" selected>Selecione uma Subcategoria</option>'; // Resetar opções
+
+    subcategorias.forEach(subcategoria => {
+        const option = document.createElement('option');
+        option.value = subcategoria.toLowerCase().replace(/\s/g, '_');
+        option.textContent = subcategoria;
+        dropdown.appendChild(option);
+    });
+
+    // Abrir o modal
+    const modal = new bootstrap.Modal(document.getElementById('subcategoriaModal')); // Corrigido ID como string
+    modal.show();
+
+    // Adicionar evento ao dropdown para salvar escolha
+    dropdown.onchange = function () {
+        if (this.value) {
+            updateSelection(ean, 'subcategoria', this.options[this.selectedIndex].text); // Corrigido para usar "selectedIndex"
+            modal.hide(); // Fechar modal
+        }
+    };
+}
+
+// Função para atualizar a exibição da seleção feita
+function updateSelection(ean, type, selectedText) {
+    const buttonId = `${type}Btn_${ean}`;
+    const button = document.getElementById(buttonId);
+
+    // Substituir o botão por um texto clicável
+    button.outerHTML = `
+        <span id="${buttonId}" class="text-primary" 
+              style="cursor: pointer;" 
+              onclick="open${type.charAt(0).toUpperCase() + type.slice(1)}Modal('${ean}', ${type === 'categoria' ? 'categorias' : 'subcategorias'})">
+            ${selectedText}
+        </span>`;
+}
+
+//Fim do Modal
 
 
 // Mapeamento de colunas
