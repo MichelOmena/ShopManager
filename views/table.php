@@ -122,14 +122,14 @@ $db = $database->connect();
                                 <td><?= htmlspecialchars($linha['referencia']); ?></td>
                                 <td><?= htmlspecialchars($linha['descricao']); ?></td>
                                 <td>
-                                    <button class="btn btn-primary btn-sm"
-                                        onclick="showModal('categoriaModal', <?= htmlspecialchars(json_encode($categorias)); ?>)">
+                                    <button class="btn btn-primary btn-sm" id="categoriaBtn_<?= $linha['ean']; ?>"
+                                        onclick="openCategoriaModal('<?= $linha['ean']; ?>', <?= htmlspecialchars(json_encode($categorias)); ?>)">
                                         Selecionar
                                     </button>
                                 </td>
                                 <td>
-                                    <button class="btn btn-secondary btn-sm"
-                                        onclick="showModal('subcategoriaModal', <?= htmlspecialchars(json_encode($subcategorias)); ?>)">
+                                    <button class="btn btn-secondary btn-sm" id="subcategoriaBtn_<?= $linha['ean']; ?>"
+                                        onclick="openSubcategoriaModal('<?= $linha['ean']; ?>', <?= htmlspecialchars(json_encode($subcategorias)); ?>)">
                                         Selecionar
                                     </button>
                                 </td>
@@ -146,7 +146,7 @@ $db = $database->connect();
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Categorias Disponíveis</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-lavel="Fechar"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
                 </div>
                 <div class="modal-body">
                     <select id="categoriaDropdown" class="form-select" aria-label="Selecionar Categoria">
@@ -166,7 +166,7 @@ $db = $database->connect();
                     <button type="button" class="btn-close " data-bs-dismiss="modal" aria-label="Fechar"></button>
                 </div>
                 <div class="modal-body">
-                    <selected id="subcategoriaDropdown" class="form-select" aria-label="Selecionar Subcategoria">
+                    <select id="subcategoriaDropdown" class="form-select" aria-label="Selecionar Subcategoria">
                         <option value="" selected>Selecione uma Subcategoria</option>
                     </select>
                 </div>
