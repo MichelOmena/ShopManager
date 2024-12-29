@@ -58,29 +58,67 @@ $db = $database->connect();
         <div class="sidebar">
             <h3>Home</h3>
             <a class="sidebar-active" href="#"><i class="fa-solid fa-house"></i>Relatorios</a>
-            <a href="#"><i class="fa-solid fa-house"></i>Relatorios</a>
-            <a href="#"><i class="fa-solid fa-house"></i>Relatorios</a>
-            <a href="#"><i class="fa-solid fa-house"></i>Relatorios</a>
-            <br/>
-            <hr>
+            <a href="./table.php"><i class="fa-solid fa-house"></i>Produtos OnDisc</a>
+            <a href="#"><i class="fa-solid fa-house"></i>Fornecedores</a>
+            <a href="./upload.php"><i class="fa-solid fa-house"></i>Upload CSV</a>
+            <br />
+            <div class="separator"></div>
             <h3>Home</h3>
             <a href="#"><i class="fa-solid fa-house"></i>Relatorios</a>
             <a href="#"><i class="fa-solid fa-house"></i>Relatorios</a>
             <a href="#"><i class="fa-solid fa-house"></i>Relatorios</a>
             <a href="#"><i class="fa-solid fa-house"></i>Relatorios</a>
-            <br/>
-            <hr>
+            <br />
+            <div class="separator"></div>
         </div> <!--sidebar-->
         <div class="content">
             <div class="titulo-secao">
                 <h2>Dashboard Stock</h2>
-                <br/>
-                <hr>
-                <p><i class="fa-solid fa-house"></i>/ Dashboard OnDisc</p>
+                <br />
+                <div class="separator"></div>
+                <p><i class="fa-solid fa-house"></i> / Dashboard OnDisc</p>
+            </div>
+
+            <div class="box-info">
+                <div class="box-info-single_1">
+                    <div class="info-text">
+                        <h3>Produtos Vendidos</h3>
+                        <p>111111111</p>
+                    </div>
+                    <i class="fa-solid fa-money-check-dollar"></i>
+                </div>
+                <div class="box-info-single_2">
+                    <div class="info-text">
+                        <h3>Produtos em Estoque</h3>
+                        <p>111111111</p>
+                    </div>
+                    <i class="fa-solid fa-money-check-dollar"></i>
+                </div>
+                <div class="box-info-single_3">
+                    <div class="info-text">
+                        <h3>Produtos em Falta</h3>
+                        <p>111111111</p>
+                    </div>
+                    <i class="fa-solid fa-money-check-dollar"></i>
+                </div>
+            </div>
+
+            <div class="feed">
+                <div class="feed-single">
+                    <div class="feed-text">
+                        <div class="circle-icon">
+                            <i class="fa-solid fa-bell"></i>
+                    </div>
+                        <span>Tutorial Novo</span>
+                    </div>
+                    <div class="feed-time">
+                        <h3>30 minutos ago</h3>
+                    </div>
+                </div>
             </div>
         </div><!--content-->
     </section><!--main -->
-    
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js"></script>
 </body>
 

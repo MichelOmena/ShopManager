@@ -5,21 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--CSS-->
-    <link rel="stylesheet" href="./assets/styles/styles.css">
+    <link rel="stylesheet" href="../assets/styles/styles.css">
     <!-- Local Bootstrap CSS-->
-    <link rel="stylesheet" href="./assets/styles/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/styles/bootstrap.min.css">
     <title>Upload CSV</title>
 </head>
 
-<body>
-    <div class="container d-flex justify-content-center align-items-center">
+<body class="body_upload">
+    <!-- <div class="container d-flex justify-content-center align-items-center">
         <div class="background-wrapper col-lg-12">
-            <img src="./assets/img/christmas-frame.jpg" alt="plano_de_fundo" class="background_image" width="100%">
+            <img src="../assets/img/christmas-frame.jpg" alt="plano_de_fundo" class="background_image" width="100%">
         </div>
-    </div>
+    </div> -->
     <div class="row">
         <div class="container d-flex justify-content-center align-items-center min-vh-100">
-            <div class="bg-light p-4 rounded shadow-lg col-lg-6">
+            <div class="upload_box bg-light p-4 rounded shadow-lg col-lg-6">
                 <div class="mt-5 mb-5">
                     <h1 class="text-black text-center">Upload CSV</h1>
                 </div>

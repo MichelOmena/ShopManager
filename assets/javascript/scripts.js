@@ -1,51 +1,25 @@
 /*DataTables*/
 $(document).ready( function () {
-    $('#example').DataTable();
-    // data: data
+    $('#table_product').DataTable();
 } );
 
-$(document).ready( function () {
-    $('#example2').DataTable();
-    // data: data
-} );
+/* Modal Categoria/Sub */
+function showModal(modalId, options) {
+    const dropdownElement = document.getElementById(modalId === 'categoriaModal' ? 'categoriaDropdown' : 'subcategoriaDropdown');
+    dropdownElement.innerHTML = '<option value="" selected>Selecione uma opção</option>'; //Resetar opções 
 
-/*Modal*/
-// function openModal(ean, referencia, descricao) {
-//     $('#ean').val(ean);
-//     $('#referencia').val(referencia);
-//     $('#descricao').val(descricao);
+    options.forEach(option => {
+        const opt = document.createElement('option');
+opt.value = option.toLowerCase().replace(/\s/g, '_') //Valor pode ser ajustado
+        opt.textContent.option;
+        dropdownElement.appendChild(opt);
+    });
+    const modal = new bootstrap.Modal(document.getElementById(modalId));
+    modal.show();
+}
 
-//     //Abrir o modal
-//     $('#editModal').modal('show');
-// }
-
-// $(document).ready(function () {
-//     //configuracao do botao de salvar
-//     $('#saveChanges').on('click', function () {
-//         const updateData = {
-//             ean: $('#ean').val(),
-//             referencia: $('#referencia').val(),
-//             descricao: $('#descricao').val(),
-//         };
-//         // Enviar os dados Ajax
-//         // $.ajax({
-//         //     url: '/updateRecord.php', // exemplo
-//         //     type: 'POST',
-//         //     data: updateData,
-//         //     success: function (response) {
-//         //         // atualizar tabela sem recarregar
-//         //         alert('Registo atualizado com sucesso!');
-//         //         $('#editModal').modal('hide');
-//         //     },
-//         //     error: function () {
-//         //         alert('Erro ao atualizar o registo.');
-//         //     },
-//         // });
-//     });
-// });
 
 // Mapeamento de colunas
-
 document.getElementById('uploadBtn').addEventListener('click', function() {
     const formData = new FormData(document.getElementById('uploadForm'));
     fetch('process_csv.php', {

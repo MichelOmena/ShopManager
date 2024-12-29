@@ -26,9 +26,12 @@
 
 
 
-/* Estilos Painel OnDisc */
+/* Estilos pagina Tabela OnDisc */
 .painel_ondisc{
-    background-image: linear-gradient(45deg,rgb(30, 31, 30),rgb(192, 192, 192));
+    background-image: linear-gradient(45deg,rgb(74, 220, 246),rgb(76, 230, 249));
+}
+
+#table_product {
 }
 
 /*Pagina Upload*/
@@ -44,21 +47,14 @@
     background-color: #218838;
 }
 
-.background-wrapper{
-    position: fixed; /* Faz a imagem ficar fixa atrás do conteúdo */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1; /* Coloca a imagem atrás do conteúdo */
-    overflow: hidden;
+.body_upload{
+    background-image: linear-gradient(45deg,rgb(74, 220, 246),rgb(76, 230, 249));
 }
 
-.background-image{
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Ajusta a imagem para cobrir toda a área */
+.upload_box {
+    border: 2px solid black;
 }
+
 
 .dashboard {
     margin: 0;
@@ -131,7 +127,7 @@
 }
 
 .sidebar a.sidebar-active{
-    border-left: 2px solid #73b4ff;
+    border-left: 4px solid #73b4ff;
     background-color: rgb(245, 245, 245);
     color: #777;
     font-weight: bold;
@@ -169,12 +165,127 @@ font-weight: bold;
 }
 
 .content{
-    width: 80%;
+    width: 76.8%;
     background-color: rgb(245, 245, 245);
-    /* padding:20px; */
+    padding:20px;
+}
+
+.titulo-secao{
+    border: 1px solid black;
+    box-shadow: 0 8px 15px rgba(0.1, 0.2, 0.4, 0.6);
+    border-radius: 10px;
+    background-color: white;
+    padding: 10px;
+}
+
+.titulo-secao h2{
+    font-size: 19px;
 }
 
 html, body.dashboard{
     height: 100%;
 }
 
+.titulo-secao p{
+    font-size: 14px;
+}
+
+.titulo-secao svg{
+    color: #73b4ff;
+}
+
+.separator{
+    width: 100%;
+    height: 1px;
+    /* border-color: rgb(240, 240, 240) !important; */
+    background-color: rgb(230, 230, 230) !important;
+    /* color: rgb(240,240,240); */
+}
+
+.box-info{
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.box-info-single_1{
+    background:linear-gradient(45deg, #2ed8b6, #59e0c5);
+    display: flex;
+    justify-content: space-between;
+    border-radius: 10px;
+    color: #fff;
+    width: 100%;
+    margin: 0 10px;
+    padding: 30px;
+}
+
+.box-info-single_2{
+    background:linear-gradient(45deg, #4099ff, #73b4ff);
+    display: flex;
+    justify-content: space-between;
+    border-radius: 10px;
+    color: #fff;
+    width: 100%;
+    margin: 0 10px;
+    padding: 30px;
+} 
+
+.box-info-single_3{
+    background:linear-gradient(45deg, #FF5370, #ff869a);
+    display: flex;
+    justify-content: space-between;
+    border-radius: 10px;
+    color: #fff;
+    width: 100%;
+    margin: 0 10px;
+    padding: 30px;
+}
+
+.box-info-single svg {
+    font-size: 28px;
+}
+
+.feed {
+    margin: 20px 0;
+    background-color: #fff;
+    border-radius: 10px;
+    width: 95%;
+    padding: 30px;
+}
+
+.feed-single {
+    display: flex;
+    justify-content: space-between;
+}
+
+.feed-text {
+    display: flex;
+}
+
+.feed-text span{
+    color: black;
+    display: inline-block;
+    margin: 8px;
+}
+
+.feed-text .circle-icon{
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    background-color: #c3dfff;
+    position: relative;
+}
+
+.feed-text svg{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 18px;
+    color: #73b4ff;
+}
+
+.feed-time{
+    color: #444;
+} 
