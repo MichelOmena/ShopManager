@@ -161,8 +161,9 @@ color: #777;
 font-weight: bold;
 }
 
-
-
+.sidebar a:hover .sidebar a > svg {
+    color: #777;
+}
 .sidebar a > svg{
     color: #444;
 }
@@ -170,6 +171,7 @@ font-weight: bold;
 .content{
     width: 80%;
     background-color: rgb(245, 245, 245);
+    /* padding:20px; */
 }
 
 html, body.dashboard{

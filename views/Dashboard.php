@@ -72,7 +72,12 @@ $db = $database->connect();
             <hr>
         </div> <!--sidebar-->
         <div class="content">
-
+            <div class="titulo-secao">
+                <h2>Dashboard Stock</h2>
+                <br/>
+                <hr>
+                <p><i class="fa-solid fa-house"></i>/ Dashboard OnDisc</p>
+            </div>
         </div><!--content-->
     </section><!--main -->
     
