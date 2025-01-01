@@ -23,7 +23,7 @@
             $auth = new Auth($user);
 
             if ($auth->login($email, $password)) {
-                header('Location: ../views/table.php');
+                header('Location: ../views/dashboard.php');
                 exit;
             } else {
                 $errors[] = 'Credenciais inválidas.';
