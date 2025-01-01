@@ -14,15 +14,6 @@ require_once '../includes/Database.php';
 // Criar a instância da classe Database
 $database = new Database();
 $db = $database->connect();
-
-// Testar a conexão com o banco
-// if ($db) {
-//     echo 'Conectado ao banco de dados com sucesso!';
-// } else {
-//     echo 'Erro na conexão com o banco!';
-// }
-
-// echo 'TESTE POWER BI';
 ?>
 
 <!DOCTYPE html>
@@ -31,43 +22,51 @@ $db = $database->connect();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/styles/styles.css">
+    <!--FontAwsome-->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-    <title>Grafico PowerBI</title>
+    <!--css-->
+    <link rel="stylesheet" href="../assets/styles/styles.css">
+    <!-- Local Bootstrap -->
+    <link rel="stylesheet" href="../assets/styles/bootstrap.min.css">
+    <!-- DataTables -->
+    <link rel="stylesheet" href="../assets/styles/dataTables.dataTables.min.css">
+    <title>Grafico</title>
 </head>
 
 <body class="dashboard">
     <header class="header_dashboard">
         <div class="info-header">
             <div class="logo">
-                <h3>Dashboard</h3>
+                <h6>ONDISC CATÁLOGO-INTERATIVO</h6>
             </div>
-            <div class="icons-header">
+            <!-- <div class="icons-header">
                 <i class="fa-solid fa-magnifying-glass"></i>
-            </div>
+            </div> -->
         </div>
         <div style="align-items: center;" class="info-header">
-            <i class="fa-solid fa-envelope"></i>
-            <i class="fa-solid fa-bell"></i>
-            <img src="../assets/img/logo.png" alt="sample">
+            <!-- <form class="d-flex" method="POST" action="../controllers/login_handler.php" role="search">
+                <button class="btn btn-outline-danger" type="submit">Sair</button>
+            </form> -->
         </div>
     </header>
     <!-- fim header -->
 
     <section class="main">
         <div class="sidebar">
-            <h3>Home</h3>
-            <a class="sidebar-active" href="#"><i class="fa-solid fa-house"></i>Relatorios</a>
-            <a href="./table.php"><i class="fa-solid fa-house"></i>Produtos OnDisc</a>
-            <a href="#"><i class="fa-solid fa-house"></i>Fornecedores</a>
-            <a href="./upload.php"><i class="fa-solid fa-house"></i>Upload CSV</a>
+            <h3>Navegação</h3>
+            <a class="sidebar-active" href="./dashboard.php"><i class="fa-solid fa-chart-simple"></i> Dashboard</a>
+            <a href="./table.php"><i class="fa-solid fa-shop"></i> Produtos OnDisc</a>
+            <a href="./suply.php"><i class="fa-solid fa-network-wired"></i> Fornecedores</a>
+            <a href="./upload.php"><i class="fa-solid fa-file-invoice"></i> Upload CSV</a>
+            <a href="./helpdesk.php"><i class="fa-solid fa-headset"></i> Assistente AI</a>
             <br />
+            <!--separador-->
             <div class="separator"></div>
-            <h3>Home</h3>
-            <a href="#"><i class="fa-solid fa-house"></i>Relatorios</a>
-            <a href="#"><i class="fa-solid fa-house"></i>Relatorios</a>
-            <a href="#"><i class="fa-solid fa-house"></i>Relatorios</a>
-            <a href="#"><i class="fa-solid fa-house"></i>Relatorios</a>
+            <form method="POST" action="../controllers/login_handler.php" style="display: inline;">
+            <button class="btn btn-outline-danger" type="submit">
+                <i class="fa-solid fa-right-from-bracket"></i> Sair
+            </button>
+        </form>
             <br />
             <div class="separator"></div>
         </div> <!--sidebar-->
@@ -82,6 +81,7 @@ $db = $database->connect();
             <div class="box-info">
                 <div class="box-info-single_1">
                     <div class="info-text">
+                        <!--Tentar conectar-se com uma API interna entre sistemas-->
                         <h3>Produtos Vendidos</h3>
                         <p>111111111</p>
                     </div>
@@ -89,6 +89,7 @@ $db = $database->connect();
                 </div>
                 <div class="box-info-single_2">
                     <div class="info-text">
+                        <!--Tentar conectar-se com uma API interna entre sistemas-->
                         <h3>Produtos em Estoque</h3>
                         <p>111111111</p>
                     </div>
@@ -96,6 +97,7 @@ $db = $database->connect();
                 </div>
                 <div class="box-info-single_3">
                     <div class="info-text">
+                        <!--Tentar conectar-se com uma API interna entre sistemas-->
                         <h3>Produtos em Falta</h3>
                         <p>111111111</p>
                     </div>
@@ -108,7 +110,7 @@ $db = $database->connect();
                     <div class="feed-text">
                         <div class="circle-icon">
                             <i class="fa-solid fa-bell"></i>
-                    </div>
+                        </div>
                         <span>Tutorial Novo</span>
                     </div>
                     <div class="feed-time">
@@ -119,7 +121,16 @@ $db = $database->connect();
         </div><!--content-->
     </section><!--main -->
 
+    <!-- CDN fontawsome -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js"></script>
+    <!--JS bootstrap-->
+    <script src="../assets/javascript/bootstrap.bundle.min.js"></script>
+    <!--jQuery-->
+    <script src="../assets/javascript/jquery-3.7.1.min.js"></script>
+    <!--DataTables-->
+    <script src="../assets/javascript/dataTables.min.js"></script>
+    <!--Scripts-->
+    <script src="../assets/javascript/scripts.js"></script>
 </body>
 
 </html>

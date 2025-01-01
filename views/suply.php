@@ -37,7 +37,7 @@ $db = $database->connect();
     <header class="header_dashboard">
         <div class="info-header">
             <div class="logo">
-                <h3>ONDISC CATÁLOGO INTERATIVO</h3>
+                <h3>ONDISC CATÁLOGO-INTERATIVO</h3>
             </div>
             <!-- <div class="icons-header">
                 <i class="fa-solid fa-magnifying-glass"></i>
@@ -56,8 +56,8 @@ $db = $database->connect();
             <h3>Navegação</h3>
             <a href="./dashboard.php"><i class="fa-solid fa-house"></i>Dashboard</a>
             <a href="./table.php"><i class="fa-solid fa-house"></i>Produtos OnDisc</a>
-            <a href="./suply.php"><i class="fa-solid fa-house"></i>Fornecedores</a>
-            <a class="sidebar-active" href="./upload.php"><i class="fa-solid fa-house"></i>Upload CSV</a>
+            <a class="sidebar-active" href="./suply.php"><i class="fa-solid fa-house"></i>Fornecedores</a>
+            <a href="./upload.php"><i class="fa-solid fa-house"></i>Upload CSV</a>
             <a href="./helpdesk.php"><i class="fa-solid fa-house"></i>Help Desk</a>
             <br />
         </div> <!--sidebar-->
@@ -84,22 +84,6 @@ $db = $database->connect();
                     </div>
                 </div>
             </div>
-
-            <!-- datatables-->
-            <div class="container d-flex justify-content-center align-items-center">
-            <div class="upload_box bg-light p-4 rounded shadow-lg col-lg-6">
-                <div class="mt-5 mb-5">
-                    <h1 class="text-black text-center">Upload CSV</h1>
-                </div>
-                <form id="uploadForm" enctype="multipart/form-data">
-                    <label for="csvFile">Selecione o arquivo CSV</label>
-                    <input type="file" id="csvFile" name="csvFile" accept=".csv" required>
-                    <div class="d-flex justify-content-center mt-4">
-                        <button type="button" id="uploadBtn">Salvar</button>
-                    </div>
-                </form>
-            </div><!-- datatables-->
-            </div><!-- datatables-->
         </div><!--content-->
     </section><!--main -->
 

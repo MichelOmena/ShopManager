@@ -1,4 +1,3 @@
-<!-- Conectar com API do google maps -->
 <?php
 //sessao
 session_start();
@@ -40,7 +39,7 @@ $db = $database->connect();
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid" id="nav-container">
                 <a class="navbar-brand" href="#">ONDISC
-                    <img src="../assets/img/logo.png" style="max-width: 50px;" alt="#">
+                    <img src="#" alt="#">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -48,20 +47,26 @@ $db = $database->connect();
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" href="./dashboard.php">Dashboard</a>
+                            <a class="nav-link active" aria-current="page" href="#">***</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Fornecedores</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Produtos
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Fornecedores</a></li>
+                                <li><a class="dropdown-item" href="#">Action</a></li>
                                 <li><a class="dropdown-item" href="#">Another action</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
                                 <li><a class="dropdown-item" href="#">Something else here</a></li>
                             </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled" aria-disabled="true">Disabled</a>
                         </li>
                     </ul>
                     <form class="d-flex" method="POST" action="../controllers/login_handler.php" role="search">
@@ -75,90 +80,75 @@ $db = $database->connect();
 
     <!-- DataTables Painel ONDISC-->
     <?php
-    //Consulta os produtos na DB
-    // $query = $pdo->query("SELECT * FROM produtos_ondisc");
-    // $dados = $query->fetchAll(PDO::FETCH_ASSOC);
+    $dados = [
+        ['ean' => '123456', 'referencia' => 'A001', 'descricao' => 'Produto 1'],
+        ['ean' => '654321', 'referencia' => 'B002', 'descricao' => 'Produto 2'],
+        ['ean' => '789012', 'referencia' => 'C003', 'descricao' => 'Produto 3'],
+        ['ean' => '789012', 'referencia' => 'C003', 'descricao' => 'Produto 3'],
+        ['ean' => '789012', 'referencia' => 'C003', 'descricao' => 'Produto 3'],
+        ['ean' => '789012', 'referencia' => 'C003', 'descricao' => 'Produto 3'],
+        ['ean' => '789012', 'referencia' => 'C003', 'descricao' => 'Produto 3'],
+        ['ean' => '789012', 'referencia' => 'C003', 'descricao' => 'Produto 3'],
+        ['ean' => '789012', 'referencia' => 'C003', 'descricao' => 'Produto 3'],
+        ['ean' => '789012', 'referencia' => 'C003', 'descricao' => 'Produto 3'],
+        ['ean' => '789012', 'referencia' => 'C003', 'descricao' => 'Produto 3'],
+        ['ean' => '789012', 'referencia' => 'C003', 'descricao' => 'Produto 3'],
+        ['ean' => '789012', 'referencia' => 'C003', 'descricao' => 'Produto 3'],
+        ['ean' => '789012', 'referencia' => 'C003', 'descricao' => 'Produto 3'],
+        ['ean' => '789012', 'referencia' => 'C003', 'descricao' => 'Produto 3'],
+        ['ean' => '789012', 'referencia' => 'C003', 'descricao' => 'Produto 3'],
+        ['ean' => '789012', 'referencia' => 'C003', 'descricao' => 'Produto 3'],
+        ['ean' => '789012', 'referencia' => 'C003', 'descricao' => 'Produto 3'],
+    ];
     ?>
 
     <div class="row">
         <div class="col-sm-12 col-md-12 col-lg-12">
-            <div class="mt-3 mb-5 ms-2 me-2 bg-light rounded shadow p-5">
+            <div class="mt-3 mb-5 me-2 ms-2 d-flex justify-content-center align-items-center bg-light rounded shadow p-5">
                 <!-- Tabela Produtos OnDisc -->
-                <table id="table_product" class="table table-hover table-light">
+                <table id="example" class="table table-hover table-light">
                     <thead>
                         <tr>
                             <th>EAN</th>
                             <th>Referência</th>
                             <th>Descrição</th>
-                            <th>Categoria</th>
-                            <th>Sub-Categoria</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php
-                        //Array de categorias e subcategorias para simular as opções
-                        $categorias = ['Eletrônica', 'Automotivo', 'Roupas'];
-                        $subcategorias = ['Som', 'Computadores', 'Telefones'];
-
-                        foreach ($dados as $linha): ?>
+                        <?php foreach ($dados as $linha): ?>
                             <tr onclick="openModal('<?= htmlspecialchars($linha['ean']); ?>', '<?= htmlspecialchars($linha['referencia']); ?>', '<?= htmlspecialchars($linha['descricao']); ?>')">
                                 <td><?= htmlspecialchars($linha['ean']); ?></td>
                                 <td><?= htmlspecialchars($linha['referencia']); ?></td>
                                 <td><?= htmlspecialchars($linha['descricao']); ?></td>
-                                <td>
-                                    <button class="btn btn-primary btn-sm" id="categoriaBtn_<?= $linha['ean']; ?>"
-                                        onclick="openCategoriaModal('<?= $linha['ean']; ?>', <?= htmlspecialchars(json_encode($categorias)); ?>)">
-                                        Selecionar
-                                    </button>
-                                </td>
-                                <td>
-                                    <button class="btn btn-secondary btn-sm" id="subcategoriaBtn_<?= $linha['ean']; ?>"
-                                        onclick="openSubcategoriaModal('<?= $linha['ean']; ?>', <?= htmlspecialchars(json_encode($subcategorias)); ?>)">
-                                        Selecionar
-                                    </button>
-                                </td>
                             </tr>
                         <?php endforeach; ?>
                     </tbody>
                 </table>
             </div>
         </div>
-    </div>
-
-    <!-- APENAS ESTÁ A SELECIONAR OS 3 PRIMEIROS-->
-     <!-- NAO DAR PARA TROCAR APOS SELECIONADO-->
-    <!-- Modal Template-->
-    <div id="categoriaModal" class="modal fade" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Categorias Disponíveis</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
-                </div>
-                <div class="modal-body">
-                    <select id="categoriaDropdown" class="form-select" aria-label="Selecionar Categoria">
-                        <option value="" selected>Selecione uma Categoria</option>
-                    </select>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!--Subcategoria-->
-    <div id="subcategoriaModal" class="modal fade" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Subcategorias Disponíveis</h5>
-                    <button type="button" class="btn-close " data-bs-dismiss="modal" aria-label="Fechar"></button>
-                </div>
-                <div class="modal-body">
-                    <select id="subcategoriaDropdown" class="form-select" aria-label="Selecionar Subcategoria">
-                        <option value="" selected>Selecione uma Subcategoria</option>
-                    </select>
-                </div>
-            </div>
-        </div>
+        <!-- <div class="col-sm-12 col-md-6 col-lg-6">
+            <div class="mt-3 mb-5 me-2 ms-2 d-flex justify-content-between align-items-center bg-light rounded shadow p-5"> -->
+                <!-- Tabela Fornecedor -->
+                <!-- <table id="example2" class="table table-hover table-info">
+                    <thead>
+                        <tr>
+                            <th>EAN</th>
+                            <th>Referência</th>
+                            <th>Descrição</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($dados as $linha): ?>
+                            <tr onclick="openModal('<?= htmlspecialchars($linha['ean']); ?>', '<?= htmlspecialchars($linha['referencia']); ?>', '<?= htmlspecialchars($linha['descricao']); ?>')">
+                                <td><?= htmlspecialchars($linha['ean']); ?></td>
+                                <td><?= htmlspecialchars($linha['referencia']); ?></td>
+                                <td><?= htmlspecialchars($linha['descricao']); ?></td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table> -->
+            <!-- </div>
+        </div> -->
     </div>
 
     <!--Footer-->

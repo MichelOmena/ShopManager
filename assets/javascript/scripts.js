@@ -71,7 +71,7 @@ function updateSelection(ean, type, selectedText) {
 
 //Fim do Modal
 
-
+//Pagina de Upload do CSV
 // Mapeamento de colunas
 document.getElementById('uploadBtn').addEventListener('click', function() {
     const formData = new FormData(document.getElementById('uploadForm'));

@@ -106,6 +106,12 @@
     margin-left:0 8px;
 }
 
+.info-header .btn {
+    background-color: rgb(205, 55, 85); /* Altere para a cor desejada */
+    color: #fff;
+    border: none;
+}
+
 .info-header svg {
     margin: 0 10px;
 }
