@@ -13,7 +13,7 @@ if (!isset($_SESSION['email'])) {
 }
 
 // Carregar a classe de Banco de Dados (Database)
-require_once '../includes/Database.php';
+require_once '../includes/database.php';
 
 // Criar a instância da classe Database
 $database = new Database();
@@ -57,12 +57,18 @@ $db = $database->connect();
 
     <section class="main">
         <div class="sidebar">
-            <h3>Navegação</h3>
-            <a href="./dashboard.php"><i class="fa-solid fa-house"></i>Dashboard</a>
-            <a href="./table.php"><i class="fa-solid fa-house"></i>Produtos OnDisc</a>
-            <a href="./suply.php"><i class="fa-solid fa-house"></i>Fornecedores</a>
-            <a href="./upload.php"><i class="fa-solid fa-house"></i>Upload CSV</a>
-            <a class="sidebar-active" href="./helpdesk.php"><i class="fa-solid fa-house"></i>Help Desk</a>
+        <h3>Navegação</h3>
+            <a href="./dashboard.php"><i class="fa-solid fa-chart-simple"></i> AI Dashboard</a>
+            <a href="./table.php"><i class="fa-solid fa-shop"></i> Produtos OnDisc</a>
+            <a href="./suply.php"><i class="fa-solid fa-network-wired"></i> Fornecedores</a>
+            <a href="./upload.php"><i class="fa-solid fa-file-invoice"></i> Upload CSV</a>
+            <a class="sidebar-active" href="./helpdesk.php"><i class="fa-solid fa-headset"></i> HelpDesk</a>
+            <br />
+            <!--separador-->
+            <div class="separator"></div>
+            <!--separador-->
+            <div class="separator"></div>
+            <a href="#"><i class="fa-solid fa-seedling"></i> Mais opções futuras</a>
             <br />
         </div> <!--sidebar-->
         <div class="content">

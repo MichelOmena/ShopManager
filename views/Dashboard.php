@@ -1,4 +1,7 @@
 <?php
+//dashboard.php: Esta página é responsável por renderizar a página principal do dashboard, mas também pode incluir o arquivo requisicao_api.php quando necessário, para realizar a requisição à API do OpenAI.
+
+
 //Inicia a sessao 
 session_start();
 
@@ -9,7 +12,10 @@ if (!isset($_SESSION['email'])) {
 }
 
 // Carregar a classe de Banco de Dados (Database)
-require_once '../includes/Database.php';
+require_once '../includes/database.php';
+require_once '../includes/requisicao_api.php'; //Função de interação com OpenAI
+
+
 
 // Criar a instância da classe Database
 $database = new Database();
@@ -39,34 +45,28 @@ $db = $database->connect();
             <div class="logo">
                 <h6>ONDISC CATÁLOGO-INTERATIVO</h6>
             </div>
-            <!-- <div class="icons-header">
-                <i class="fa-solid fa-magnifying-glass"></i>
-            </div> -->
         </div>
         <div style="align-items: center;" class="info-header">
-            <!-- <form class="d-flex" method="POST" action="../controllers/login_handler.php" role="search">
+            <form class="d-flex" method="POST" action="../controllers/login_handler.php" role="search">
                 <button class="btn btn-outline-danger" type="submit">Sair</button>
-            </form> -->
+            </form>
         </div>
     </header>
     <!-- fim header -->
-
     <section class="main">
         <div class="sidebar">
             <h3>Navegação</h3>
-            <a class="sidebar-active" href="./dashboard.php"><i class="fa-solid fa-chart-simple"></i> Dashboard</a>
+            <a class="sidebar-active" href="./dashboard.php"><i class="fa-solid fa-chart-simple"></i> AI Dashboard</a>
             <a href="./table.php"><i class="fa-solid fa-shop"></i> Produtos OnDisc</a>
             <a href="./suply.php"><i class="fa-solid fa-network-wired"></i> Fornecedores</a>
             <a href="./upload.php"><i class="fa-solid fa-file-invoice"></i> Upload CSV</a>
-            <a href="./helpdesk.php"><i class="fa-solid fa-headset"></i> Assistente AI</a>
+            <a href="./helpdesk.php"><i class="fa-solid fa-headset"></i> HelpDesk</a>
             <br />
             <!--separador-->
             <div class="separator"></div>
-            <form method="POST" action="../controllers/login_handler.php" style="display: inline;">
-            <button class="btn btn-outline-danger" type="submit">
-                <i class="fa-solid fa-right-from-bracket"></i> Sair
-            </button>
-        </form>
+           <!--separador-->
+           <div class="separator"></div>
+            <a href="#"><i class="fa-solid fa-seedling"></i> Mais opções futuras</a>
             <br />
             <div class="separator"></div>
         </div> <!--sidebar-->
@@ -118,6 +118,10 @@ $db = $database->connect();
                     </div>
                 </div>
             </div>
+
+            <?php
+            // echo "A chave da API é: " . $apiKey;
+            ?>
         </div><!--content-->
     </section><!--main -->
 
@@ -131,6 +135,8 @@ $db = $database->connect();
     <script src="../assets/javascript/dataTables.min.js"></script>
     <!--Scripts-->
     <script src="../assets/javascript/scripts.js"></script>
+    <!--Script relatorio-->
+    <script src="../assets/javascript/relatorio.js"></script>
 </body>
 
 </html>
