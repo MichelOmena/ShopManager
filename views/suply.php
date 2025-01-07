@@ -1,4 +1,5 @@
 <?php
+use Dotenv\Dotenv;
 //Inicia a sessao 
 session_start();
 
@@ -8,8 +9,25 @@ if (!isset($_SESSION['email'])) {
     exit;
 }
 
+// Inclua o autoload do Composer
+require_once __DIR__ . '/../vendor/autoload.php';
+// Carregar as variáveis de ambiente do arquivo .env
+$dotenv = Dotenv::createImmutable(__DIR__ . '/../');
+$dotenv->load();
+
+//Acessar a chave da API de forma segura
+$apiKey = $_ENV['OPENAI_API_KEY'] ?? null;
+
+// Teste de exibição
+if ($apiKey) {
+    echo "API Key: " . $apiKey;
+} else {
+    echo "API Key not found!";
+}
+
 // Carregar a classe de Banco de Dados (Database)
 require_once '../includes/database.php';
+// require_once '../includes/requisicao_api.php';
 
 // Criar a instância da classe Database
 $database = new Database();
