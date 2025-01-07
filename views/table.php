@@ -19,8 +19,7 @@ require_once '../includes/config_cURL.php';
 require_once '../includes/database.php';
 // Call function for API credentials
 $apiKey = GetApiKey();
-//test
-echo $apiKey;
+
 
 
 
