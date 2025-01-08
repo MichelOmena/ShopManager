@@ -20,7 +20,7 @@ require_once '../includes/database.php';
 // Call function for API credentials
 $apiKey = GetApiKey();
 
-
+echo $apiKey;
 
 
 // Criar a instância da classe Database
