@@ -1,66 +1,29 @@
 <?php
-//dashboard.php: Esta página é responsável por renderizar a página principal do dashboard, mas também pode incluir o arquivo requisicao_api.php quando necessário, para realizar a requisição à API do OpenAI.
+use Dotenv\Dotenv;
 
+require_once '../Config/credentials_api.php'; //Include openai safe credentials
+require_once '../includes/config_cURL.php'; //Config cURL
+require_once '../Models/database.php'; // Carregar a classe de Banco de Dados (Database)
 
-//Inicia a sessao 
-session_start();
-
-//Verificar se o usuario esta autenticado
-if (!isset($_SESSION['email'])) {
-    header("Location: ../index.php");
-    exit;
-}
-
-// Carregar a classe de Banco de Dados (Database)
-require_once '../includes/database.php';
-require_once '../includes/requisicao_api.php'; //Função de interação com OpenAI
-
-
+// Call function for API credentials
+$apiKey = GetApiKey();
 
 // Criar a instância da classe Database
 $database = new Database();
 $db = $database->connect();
+
+//@extends Header
+require_once '../layout/header.php';
 ?>
-
-<!DOCTYPE html>
-<html lang="pt">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--FontAwsome-->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-    <!--css-->
-    <link rel="stylesheet" href="../assets/styles/styles.css">
-    <!-- Local Bootstrap -->
-    <link rel="stylesheet" href="../assets/styles/bootstrap.min.css">
-    <!-- DataTables -->
-    <link rel="stylesheet" href="../assets/styles/dataTables.dataTables.min.css">
-    <title>Grafico</title>
-</head>
-
-<body class="dashboard">
-    <header class="header_dashboard">
-        <div class="info-header">
-            <div class="logo">
-                <h6>ONDISC CATÁLOGO-INTERATIVO</h6>
-            </div>
-        </div>
-        <div style="align-items: center;" class="info-header">
-            <form class="d-flex" method="POST" action="../controllers/login_handler.php" role="search">
-                <button class="btn btn-outline-danger" type="submit">Sair</button>
-            </form>
-        </div>
-    </header>
-    <!-- fim header -->
+<!--Section-->
     <section class="main">
         <div class="sidebar">
             <h3>Navegação</h3>
-            <a class="sidebar-active" href="./dashboard.php"><i class="fa-solid fa-chart-simple"></i> AI Dashboard</a>
-            <a href="./table.php"><i class="fa-solid fa-shop"></i> Produtos OnDisc</a>
-            <a href="./suply.php"><i class="fa-solid fa-network-wired"></i> Fornecedores</a>
-            <a href="./upload.php"><i class="fa-solid fa-file-invoice"></i> Upload CSV</a>
-            <a href="./helpdesk.php"><i class="fa-solid fa-headset"></i> HelpDesk</a>
+            <a class="sidebar-active" href="./app_dashboard.php"><i class="fa-solid fa-chart-simple"></i> AI Dashboard</a>
+            <a href="./app_table.php"><i class="fa-solid fa-shop"></i> Produtos OnDisc</a>
+            <a href="./app_suply.php"><i class="fa-solid fa-network-wired"></i> Fornecedores</a>
+            <a href="./app_upload.php"><i class="fa-solid fa-file-invoice"></i> Upload CSV</a>
+            <a href="./app_helpdesk.php"><i class="fa-solid fa-headset"></i> HelpDesk</a>
             <br />
             <!--separador-->
             <div class="separator"></div>

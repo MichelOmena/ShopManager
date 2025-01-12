@@ -1,7 +1,8 @@
+    <!-- O controller vai indicar as direções e quais arquivos usar para realizar certas operações, como por exemplo para mostrar clientes, ele vai buscar o arquivo que conecta com a database e depois vai chamar a view que é para mostrar o conteudo e enviar os dados -->
     <?php
-    require_once '../includes/Database.php';
+    require_once '../Models/database.php';
     require_once '../includes/User.php';
-    require_once '../includes/Auth.php';
+    require_once '../includes/auth_class.php';
     require_once '../includes/logout.php';
 
     $errors = [];
@@ -17,13 +18,14 @@
             $errors[] = 'A senha é obrigatoria.';
         }
 
+        //Caso não haja erros
         if (empty($errors)) {
             $db = (new Database())->connect();
             $user = new User($db);
             $auth = new Auth($user);
 
             if ($auth->login($email, $password)) {
-                header('Location: ../views/dashboard.php');
+                header('Location: ../views/app_dashboard.php');
                 exit;
             } else {
                 $errors[] = 'Credenciais inválidas.';
